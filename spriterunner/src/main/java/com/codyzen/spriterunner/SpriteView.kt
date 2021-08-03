@@ -34,8 +34,8 @@ class SpriteView(context: Context, attrs: AttributeSet?) : View(context, attrs) 
         get() {
         return running
     }
-//    var maxCycles = 0
-//    var currentCycle = 0
+    var maxCycles = 0
+    var currentCycle = 0
     var stateChangeListener: StateChangeListener? = null
 
     var renderRow = 0
@@ -60,7 +60,7 @@ class SpriteView(context: Context, attrs: AttributeSet?) : View(context, attrs) 
             isFixedRow = a.getBoolean(R.styleable.SpriteView_isFixedRow, isFixedRow)
             autoPlay = a.getBoolean(R.styleable.SpriteView_autoPlay, autoPlay)
 
-//            maxCycles = a.getInt(R.styleable.SpriteView_cycles, maxCycles)
+            maxCycles = a.getInt(R.styleable.SpriteView_cycles, maxCycles)
             a.recycle()
             if (autoPlay)
                 start()
@@ -84,13 +84,13 @@ class SpriteView(context: Context, attrs: AttributeSet?) : View(context, attrs) 
                     resetFrames()
                 }
                 currentFrame++
-//            if (maxCycles > 0 && currentCycle > maxCycles) {
-//                stop()
-//                return@schedule
-//            }
-//            if (currentFrame == 0) {
-//                currentCycle += 1
-//            }
+           if (maxCycles > 0 && currentCycle > maxCycles) {
+               stop()
+               return@schedule
+           }
+           if (currentFrame == 0) {
+               currentCycle += 1
+           }
             }
             post {
                 stateChangeListener?.onStart(this)
