@@ -85,7 +85,7 @@ class SpriteView(context: Context, attrs: AttributeSet?) : View(context, attrs) 
                     resetFrames()
                 }
                 currentFrame++
-           if (maxCycles > 0 && currentCycle > maxCycles) {
+           if (maxCycles > 0 && currentCycle == maxCycles) {
                stop()
                return@schedule
            }
