@@ -13,10 +13,6 @@ import kotlin.concurrent.schedule
 
 class SpriteView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
     
-    interface AnimationEndListener {
-    fun onAnimationStop()
-    }
-    
     var image: Bitmap? = null
     var spriteWidth = 0.0
     var spriteHeight = 0.0
@@ -107,9 +103,7 @@ class SpriteView(context: Context, attrs: AttributeSet?) : View(context, attrs) 
         pause()
         if (currentFrame > 0)
             post {
-                animationListener.onAnimationStop()
-                stateChangeListener?.onStop(this)
-                
+                stateChangeListener?.onStop(this)    
             }
 
         resetFrames()
