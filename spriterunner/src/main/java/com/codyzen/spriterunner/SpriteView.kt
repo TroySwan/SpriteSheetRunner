@@ -11,7 +11,7 @@ import java.util.*
 import kotlin.concurrent.schedule
 
 
-class SpriteView(context: Context, attrs: AttributeSet?, val animationListener: AnimationEndListener? = null) : View(context, attrs) {
+class SpriteView(context: Context, attrs: AttributeSet?, val animationListener: AnimationEndListener? = null) : View(context, attrs, animationListener) {
     
     interface AnimationEndListener {
     fun onAnimationStop()
