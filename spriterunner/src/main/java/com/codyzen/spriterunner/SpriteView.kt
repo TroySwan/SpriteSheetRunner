@@ -88,7 +88,7 @@ class SpriteView(context: Context, attrs: AttributeSet?) : View(context, attrs) 
                stop()
                return@schedule
            }
-           if (currentFrame == 0) {
+           if (currentFrame == lastFrame) {
                currentCycle += 1
            }
             }
